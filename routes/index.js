@@ -1,18 +1,12 @@
 const express = require("express");
 
-const router = express.Router();
+const route = express.Router();
+const sms = require("../controllers/sms");
+const call = require("../controllers/call");
+const whatsapp = require("../controllers/whatsapp");
 
-// => get user number
-router.get("/add-user", (req, res, next) => {
-  res.send(
-    '<form action="/user/add-user" method="POST"><input type="number" name="phoneNumber"><button type="submit">Add Number</button></form>'
-  );
-});
-// userinformation
-router.post("/user", (req, res, next) => {
-  console.log(req.body);
-  res.redirect("/");
-});
+route.post("/sms", sms.sendsms);
+route.post("/call", call.callclient);
+route.post("/whatsapp", whatsapp.whatsapp);
 
-module.exports = router;
-
+module.exports = route;
