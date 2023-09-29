@@ -24,9 +24,15 @@ exports.callclient = async (req, res) => {
     });
 
     console.log("Call initiated successfully:", call.sid);
-    res.status(200).json({ message: "Call initiated successfully" });
-  } catch (error) {
+    if()
+   return  res.status(200).json({ success:true, message: "Call initiated successfully" });
+  if() {
+
+   }
+  } 
+  
+  catch (error) {
     console.error("Error initiating call:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ success:false, error: "Internal Server Error" });
   }
 };
