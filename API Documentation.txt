@@ -55,6 +55,7 @@ Explanation
 which is provided in request from client
 • If any error occurred while making call, it will send a response that Invalid phone number, or an
 error occurred on the server.
+
 3. Send WhatsApp message
 Endpoint: http://localhost:5000/whatsapp
 Method: POST

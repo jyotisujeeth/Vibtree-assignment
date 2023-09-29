@@ -26,15 +26,23 @@ exports.callclient = async (req, res) => {
     });
 
     console.log("Created message using callback", call.sid);
-    
-   return  res.status(200).json({ success:true, message: "Created message using callback" });
-  if() {
 
-   }
-  } 
-  
-  catch (error) {
-    console.error("Error initiating call:", error);
-    res.status(500).json({ success:false, error: "Internal Server Error" });
+    return res
+      .status(200)
+      .json({ success: true, message: "Created message using callback" });
+  } catch (error) {
+    if (error) {
+      console.error("Error sending SMS:", error);
+      return res
+        .status(400)
+        .json({ success: false, error: "Invalid phone number" });
+    } else {
+      console.error("Error sending SMS:", error);
+      return res
+        .status(500)
+        .json({ success: false, error: "An error occurred on the server" });
+    }
   }
 };
+
+
