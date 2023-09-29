@@ -1,0 +1,85 @@
+API Documentation
+1. Send SMS
+Endpoint: http://localhost:5000/sms
+Method: POST
+Description: Send an SMS message to a recipient.
+Request Body:
+Json
+{
+"to": "Recipient Phone Number with country code"
+}
+Response:
+• 200 OK - Successful request. SMS sent successfully.
+• 400 Bad Request - Invalid phone number.
+• 500 Internal Server Error - An error occurred on the server.
+dependencies:
+• Cors: 2.8.5,
+• Dotenv: 16.3.1,
+• Express: 4.18.2,
+• Nodemon: 3.0.1,
+• Twilio: 4.18.0
+Explanation
+• First, we need to Set Up a Node.js Project
+• Install required Dependencies in project
+• Import Twilio to create a route which is used to send SMS, Call and WhatsApp message
+• Create account in Twilio and get Account Sid, AUTH Token and Twilio Phone Number.
+• By using those details from Twilio created backend endpoint and sending SMS to phone number
+which is provided in request from client
+• If any error occurred while sending SMS, it will send a response that Invalid phone number, or
+an error occurred on the server.
+2. Make a call
+Endpoint: http://localhost:5000/call
+Method: POST
+Description: Send a Call to a recipient.
+Request Body:
+Json
+{
+"to": "Recipient Phone Number with country code"
+}
+Response:
+• 200 OK - Successful request. SMS sent successfully.
+• 400 Bad Request - Invalid phone number.
+• 500 Internal Server Error - An error occurred on the server.
+dependencies:
+• Cors: 2.8.5,
+• Dotenv: 16.3.1,
+• Express: 4.18.2,
+• Nodemon: 3.0.1,
+• Twilio: 4.18.0
+Explanation
+• First, we need to Set Up a Node.js Project
+• Install required Dependencies in project
+• Import Twilio to create a route which is used to send SMS, Call and WhatsApp message
+• Create account in Twilio and get Account Sid, AUTH Token and Twilio Phone Number.
+• By using those details from Twilio created backend endpoint to make a call to phone number
+which is provided in request from client
+• If any error occurred while making call, it will send a response that Invalid phone number, or an
+error occurred on the server.
+3. Send WhatsApp message
+Endpoint: http://localhost:5000/whatsapp
+Method: POST
+Description: Send a WhatsApp message
+Request Body:
+Json
+{
+"to": "Recipient Phone Number with country code"
+}
+Response:
+• 200 OK - Successful request. SMS sent successfully.
+• 400 Bad Request - Invalid phone number.
+• 500 Internal Server Error - An error occurred on the server.
+dependencies:
+• Cors: 2.8.5,
+• Dotenv: 16.3.1,
+• Express: 4.18.2,
+• Nodemon: 3.0.1,
+• Twilio: 4.18.0
+Explanation
+• First, we need to Set Up a Node.js Project
+• Install required Dependencies in project
+• Import Twilio to create a route which is used to send SMS, Call and WhatsApp message
+• Create account in Twilio and get Account Sid, AUTH Token and Twilio Phone Number.
+• By using those details from Twilio created backend endpoint to send WhatsApp message to
+phone number which is provided in request from client
+• If any error occurred while sending WhatsApp message it will send a response that Invalid
+phone number, or an error occurred on the server.
