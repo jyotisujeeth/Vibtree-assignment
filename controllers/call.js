@@ -6,6 +6,8 @@ dotenv.config();
 exports.callclient = async (req, res) => {
   const to = req.body.to;
 
+
+  
   if (!to) {
     return res.status(400).json({ error: "Invalid phone number" });
   }
@@ -18,14 +20,14 @@ exports.callclient = async (req, res) => {
   try {
     const call = await twilio_client.calls.create({
       twiml:
-        "<Response><Say>Hello wellcome to vibtree,this is a verification call.</Say></Response>",
+        "<Response><Say>Hello Welcome! Your verification code is 54875.</Say></Response>",
       to: to,
       from: twilioPhoneNumber,
     });
 
-    console.log("Call initiated successfully:", call.sid);
-    if()
-   return  res.status(200).json({ success:true, message: "Call initiated successfully" });
+    console.log("Created message using callback", call.sid);
+    
+   return  res.status(200).json({ success:true, message: "Created message using callback" });
   if() {
 
    }

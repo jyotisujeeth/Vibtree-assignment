@@ -20,20 +20,38 @@ exports.sendsms = async (req, res) => {
   // console.log(authToken)
   // console.log(twilioPhoneNumber)
 
+ const welcomeMessage = "Welcome! Your verification code is 54875";
+
+
+  
+
   const twilioClient = twilio(accountSid, authToken);
 
   try {
     // Use Twilio API to send SMS
     const message = await twilioClient.messages.create({
       from: twilioPhoneNumber,
-      body: "Hello welcome to our company",
-      to: to,
+      body: welcomeMessage,
+      to: to, // user
     });
 
     console.log("SMS sent successfully:", message.sid);
-    res.status(200).json({ message: "SMS sent successfully" });
+    return res.status(200).json({ success: true,  message: "SMS sent successfully" });
   } catch (error) {
     console.error("Error sending SMS:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+   return  res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
+// const client = require("twilio")(accountSid, authToken);
+
+// client.messages
+//   .create({
+//     body: "This is the ship that made the Kessel Run in fourteen parsecs?",
+//     from: "+15017122661",
+//     mediaUrl: [
+//       "https://c1.staticflickr.com/3/2899/14341091933_1e92e62d12_b.jpg",
+//     ],
+//     to: "+15558675310",
+//   })
+//   .then((message) => console.log(message.sid));
