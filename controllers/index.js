@@ -17,7 +17,7 @@ exports.Postuser = async (req, res, next) => {
       password: password,
       userId: req.user,
     });
-    expense.save();
+    user.save();
     res
       .status(201)
       .json({ postUser, success: true, message: "user created successfully " });
@@ -31,10 +31,12 @@ exports.Postuser = async (req, res, next) => {
 
 exports.getuser = async (req, res, next) => {
   try {
-    const user = await Expense.find({ userId: req.user._id });
+    const user = await user.find({ userId: req.user._id });
 
-    res.status(200).json({ expenses, success: true });
+    res.status(200).json({ user, success: true });
   } catch (err) {
     res.status(500).json({ error: err, success: false });
   }
 };
+
+

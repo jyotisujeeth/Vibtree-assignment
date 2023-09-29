@@ -7,7 +7,7 @@ const sendSms = (phone, message) => {
   const client = require("twilio")(accountSid, authToken);
   client.messages
     .create({
-      body: message,
+      body: SMS SENT successfully,
       from: process.env.TWILIO_PHONE_NUMBER,
       to: phone,
     })
